@@ -166,13 +166,13 @@ public class NetUtils extends AjaxCallBack<Object> {
         if (ConnUtils.isConnected(context)) {
             AjaxParams ajaxParams = transformHashMap(params);
             //请求头都是一些公共的信息
-            http.addHeader("usersession", PreferenceUtil.getString(this.context, "usersession", null, "tuhu_table"));
+            //http.addHeader("usersession", PreferenceUtil.getString(this.context, "usersession", null, "tuhu_table"));
             http.addHeader("VersionNumber", VersionUtils.getVersionName(context));
             http.addHeader("VersionCode", VersionUtils.getVersionCode(context) + "");
             http.addHeader("ChannelType", "android");
             http.addHeader("Source", BaseApplication.getInstance().getChannelId());//渠道来源
             http.addHeader("DeviceID", BaseApplication.getInstance().getUUID());
-            http.addHeader("black_box", FMAgent.onEvent(context));//此处填写移动端sdk采集到的信息black_box
+            //http.addHeader("black_box", FMAgent.onEvent(context));//此处填写移动端sdk采集到的信息black_box
 
             if (!isFull) {
                 url = UrlConstant.BASE_API + url;
