@@ -23,8 +23,7 @@ public class AssetActivity extends BaseActivity {
         findView(R.id.btn_asset).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String strFromAsset = AssetUtils.getStrFromAsset("area.data", assetsManager);
+                String strFromAsset = AssetUtils.getStrFromAsset("city1.txt", assetsManager);
             }
         });
 
