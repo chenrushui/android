@@ -23,7 +23,7 @@ public class AssetActivity extends BaseActivity {
         findView(R.id.btn_asset).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //测试数据
+
                 String strFromAsset = AssetUtils.getStrFromAsset("area.data", assetsManager);
             }
         });
