@@ -1,5 +1,7 @@
 package com.crs.demo.bean;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created on 2016/8/31.
  * Author:crs
@@ -8,15 +10,16 @@ package com.crs.demo.bean;
 public class OrderStatusEntity {
 
     /**
-     * Code : 1
+     * Code :     1
      * AfterSaleType : {"UnReceive":"未收到货","ReturnGoods":"退货","ShopServiceTousu":"门店服务投诉","ProductQuality":"货品质量问题","Invoice":"发票问题","Other":"其他"}
      */
 
-    private String Code;
+    @SerializedName("Code")
+    private String code;
     private AfterSaleTypeEntity AfterSaleType;
 
     public void setCode(String Code) {
-        this.Code = Code;
+        this.code = Code;
     }
 
     public void setAfterSaleType(AfterSaleTypeEntity AfterSaleType) {
@@ -24,7 +27,7 @@ public class OrderStatusEntity {
     }
 
     public String getCode() {
-        return Code;
+        return code;
     }
 
     public AfterSaleTypeEntity getAfterSaleType() {
