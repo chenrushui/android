@@ -3,6 +3,7 @@
 *.ap_
 .DS_Store
 .idea/
+
 # Files for the Dalvik VM
 *.dex
 
@@ -25,5 +26,6 @@ proguard/
 
 # Log Files
 *.log
+
 #Android Studio
 *.iml
