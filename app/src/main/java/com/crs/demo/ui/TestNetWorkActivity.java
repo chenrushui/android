@@ -39,6 +39,7 @@ public class TestNetWorkActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
             case R.id.btn_get: {
                 clickGet();
