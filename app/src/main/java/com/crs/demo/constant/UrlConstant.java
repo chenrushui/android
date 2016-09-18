@@ -8,7 +8,7 @@ package com.crs.demo.constant;
 public interface UrlConstant {
 
     String ORDER_STATUS = "http://api.tuhu.test/Order/GetTousuTypeValue";
-    String ORDER_STATUS_POST = " http://api.tuhu.test/Order/GetOrderStatusForCheLun";
+    String ORDER_STATUS_POST = "http://api.tuhu.test/Order/GetOrderStatusForCheLun";
 
     String BASE_API = "";
 }

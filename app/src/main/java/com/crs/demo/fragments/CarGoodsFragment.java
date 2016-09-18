@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.crs.demo.R;
 import com.crs.demo.base.BaseFragment;
@@ -22,10 +23,14 @@ public class CarGoodsFragment extends BaseFragment {
     private boolean isPay;
     private String pid;
     private int buyNum;
+    private View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_car_goods, container, false);
+        view = inflater.inflate(R.layout.fragment_car_goods, container, false);
+        return view;
+
+
     }
 
     @Override
@@ -34,6 +39,9 @@ public class CarGoodsFragment extends BaseFragment {
         //处理数据
         getArgumentsData();
         ((testFragmentActivity) mActivity).getCarGoodsData();
+
+        Button btn_fragment_car_goods = getView(view, R.id.btn_fragment_car_goods);
+
     }
 
     //获取传递过来的数据
@@ -80,6 +88,5 @@ public class CarGoodsFragment extends BaseFragment {
             //进行对控件的赋值操作
         }
     }
-
 
 }

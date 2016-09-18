@@ -127,6 +127,7 @@ public class NetUtils extends AjaxCallBack<Object> {
 
     //访问api站点
     public void sendToApi(HashMap<String, String> params, String url, final ResponseCallBack responseCallBack) {
+        this.responseCallBack = responseCallBack;
         if (ConnUtils.isConnected(context)) {
             AjaxParams ajaxParams = transformHashMap(params);
             if (!isFull) {
@@ -144,7 +145,7 @@ public class NetUtils extends AjaxCallBack<Object> {
                 // });
 
             } else {
-                http.post(url, ajaxParams, this);
+                http.get(url, ajaxParams, this);
                 //http.get(url, ajaxParams, new AjaxCallBack<ResponseEntity>() {
                 // @Override
                 // public void onSuccess(ResponseEntity responseEntity) {
@@ -170,9 +171,11 @@ public class NetUtils extends AjaxCallBack<Object> {
             http.addHeader("VersionNumber", VersionUtils.getVersionName(context));
             http.addHeader("VersionCode", VersionUtils.getVersionCode(context) + "");
             http.addHeader("ChannelType", "android");
-            http.addHeader("Source", BaseApplication.getInstance().getChannelId());//渠道来源
+            //渠道来源
+            http.addHeader("Source", BaseApplication.getInstance().getChannelId());
             http.addHeader("DeviceID", BaseApplication.getInstance().getUUID());
-            //http.addHeader("black_box", FMAgent.onEvent(context));//此处填写移动端sdk采集到的信息black_box
+            String s = "eyJvcyI6IkFuZHJvaWQiLCJ2ZXJzaW9uIjoiMi4xLjQiLCJzZXNzaW9uX2lkIjoidHVodTc0ZjJlYTA1OGE0M2ZkY2Q5ZGQ5ZTlhNWE5ZTczYWNhIiwiZGV2aWNlX2lkIjoiSU1US0FNTE11MjFIRXRqTHlaMFl6d3Y5bDM0VUUzTDhGeHYyaXN5U2xjcFZoWEhrZzBHeXN1R3hpSjFnOW13bzFhPT0iLCJidW5kbGUiOiJjbi5UdUh1LmFuZHJvaWRfNDgiLCJkYXRlIjoiMTQ3NDE2NjI0ODg5MCIsImRhdGEiOiJmODNvN3pabFVFSU5aQ3FPTlNxY05QVTlXV3U9In0=";
+            http.addHeader("black_box", s);//此处填写移动端sdk采集到的信息black_box
 
             if (!isFull) {
                 url = UrlConstant.BASE_API + url;
@@ -210,6 +213,9 @@ public class NetUtils extends AjaxCallBack<Object> {
     }
 
     private AjaxParams transformHashMap(HashMap<String, String> params) {
+        if (params == null) {
+            return null;
+        }
         AjaxParams param = new AjaxParams();
         Set<Map.Entry<String, String>> entries = params.entrySet();
         for (Map.Entry<String, String> entry : entries) {

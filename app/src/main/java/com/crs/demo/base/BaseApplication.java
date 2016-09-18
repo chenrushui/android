@@ -30,4 +30,6 @@ public class BaseApplication extends Application {
     public static String getChannelId() {
         return null;
     }
+
+    //集成友盟推送 消息提醒
 }
