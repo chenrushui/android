@@ -31,11 +31,14 @@
             android:name=".ui.login.LoginActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"></activity>
-        <activity android:name=".ui.TestNetWorkActivity">
+        <activity android:name=".ui.TestNetWorkActivity"></activity>
+        <activity android:name=".ui.Handle1Activity"></activity>
+        <activity android:name=".ui.rx.TestRxAndroidActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
     </application>

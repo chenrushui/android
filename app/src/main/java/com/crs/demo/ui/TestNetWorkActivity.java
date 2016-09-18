@@ -3,11 +3,13 @@ package com.crs.demo.ui;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.crs.demo.R;
 import com.crs.demo.base.BaseActivity;
 import com.crs.demo.bean.ResponseEntity;
 import com.crs.demo.constant.UrlConstant;
+import com.crs.demo.utils.ImageLoaderUtils;
 import com.crs.demo.utils.LogUtils;
 import com.crs.demo.utils.NetUtils;
 import com.crs.demo.utils.ToastUtils;
@@ -21,6 +23,7 @@ import java.util.HashMap;
  */
 public class TestNetWorkActivity extends BaseActivity implements View.OnClickListener {
     private static final String TAG = "TestNetWorkActivity";
+    private ImageView iv_test_net_work;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +36,12 @@ public class TestNetWorkActivity extends BaseActivity implements View.OnClickLis
     private void initViews() {
         Button btn_get = findView(R.id.btn_get);
         Button btn_post = findView(R.id.btn_post);
+        Button btn_load_image = findView(R.id.btn_load_image);
+        iv_test_net_work = findView(R.id.iv_test_net_work);
+
         btn_get.setOnClickListener(this);
         btn_post.setOnClickListener(this);
+        btn_load_image.setOnClickListener(this);
     }
 
     @Override
@@ -49,7 +56,10 @@ public class TestNetWorkActivity extends BaseActivity implements View.OnClickLis
                 clickPost();
             }
             break;
-
+            case R.id.btn_load_image: {
+                ImageLoaderUtils.loadImage(TestNetWorkActivity.this, UrlConstant.IMAGE_URL, iv_test_net_work);
+            }
+            break;
         }
 
     }

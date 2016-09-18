@@ -20,11 +20,13 @@ import com.google.gson.Gson;
 public class HandleActivity extends BaseActivity implements View.OnClickListener {
     private static final int SUCCESS_GET_DATE = 0;
     private Button btn;
+
     private Handler mHandle = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             switch (msg.what) {
+                //接收子线程发送的消息
                 case SUCCESS_GET_DATE: {
                     StudentEntity student = (StudentEntity) msg.obj;
                     String name = student.getName();
