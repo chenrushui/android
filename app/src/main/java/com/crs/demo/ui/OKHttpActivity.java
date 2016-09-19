@@ -38,7 +38,6 @@ public class OKHttpActivity extends BaseActivity {
         //post请求
         //getOrderStatusPost();
 
-        //使用okHttpUtils进行网络请求
         okHttpUtilsGet();
 
 

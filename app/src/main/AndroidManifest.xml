@@ -28,12 +28,14 @@
         <activity android:name=".ui.LunBanImageActivity"></activity>
 
         <activity
-            android:name=".ui.login.LoginActivity"
+            android:name=".ui.loginmvp.LoginActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"></activity>
         <activity android:name=".ui.TestNetWorkActivity"></activity>
         <activity android:name=".ui.Handle1Activity"></activity>
-        <activity android:name=".ui.rx.RxDownLoadImgActivity">
+        <activity android:name=".ui.rxandroid.RxDownLoadImgActivity"></activity>
+
+        <activity android:name=".ui.okhttp.OKHttpActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
