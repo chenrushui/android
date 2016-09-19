@@ -8,40 +8,37 @@ import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
 import java.io.IOException;
-import java.util.Map;
-import java.util.Set;
 
 import rx.Observable;
 import rx.Subscriber;
 
 /**
- * Created on 2016/9/18.
+ * Created on 2016/9/19.
  * Author:crs
- * Description:登录工具类
+ * Description:查询工具类
  */
-public class LoginUtils {
-    private static OkHttpClient httpUtils;
+public class QueryUtils {
 
-    public LoginUtils() {
+    private OkHttpClient httpUtils;
+
+    public QueryUtils() {
         httpUtils = new OkHttpClient();
     }
 
-
     /**
-     * 定义login操作，使用RxAndroid的编程思想
+     * 定义查询操作，使用rx的编程思想
      *
      * @param url
-     * @param login
-     * @param password
-     * @return 定义字符串类型的返回值
+     * @param orderId
+     * @return
      */
-    public Observable<String> loginPost(final String url, final String login, final String password) {
+    public Observable<String> queryOrder(final String url, final String orderId) {
         return Observable.create(new Observable.OnSubscribe<String>() {
             @Override
             public void call(final Subscriber<? super String> subscriber) {
                 if (!subscriber.isUnsubscribed()) {
-                    RequestBody formBody = new FormEncodingBuilder().add("name", login).add("password", password).build();
-                    Request request = new Request.Builder().url(url).post(formBody).build();
+                    RequestBody body = new FormEncodingBuilder().add("orderNo", orderId).build();
+                    Request request = new Request.Builder().url(url).post(body).build();
                     httpUtils.newCall(request).enqueue(new Callback() {
                         @Override
                         public void onFailure(Request request, IOException e) {
@@ -51,14 +48,15 @@ public class LoginUtils {
                         @Override
                         public void onResponse(Response response) throws IOException {
                             if (response.isSuccessful()) {
-                                subscriber.onNext(response.body().string());
+                                String str = response.body().string();
+                                subscriber.onNext(str);
                             }
                             subscriber.onCompleted();
                         }
                     });
-
                 }
             }
         });
     }
+
 }

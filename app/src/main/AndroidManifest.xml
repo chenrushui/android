@@ -33,12 +33,11 @@
             android:screenOrientation="portrait"></activity>
         <activity android:name=".ui.TestNetWorkActivity"></activity>
         <activity android:name=".ui.Handle1Activity"></activity>
-        <activity android:name=".ui.rx.TestRxAndroidActivity">
+        <activity android:name=".ui.rx.RxDownLoadImgActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
     </application>
