@@ -8,5 +8,6 @@ package com.crs.demo.constant;
 public interface IntConstant {
     int RESPONSE_CODE_SUCCESS = 1;
     int RESPONSE_GET_NULL = 2;
+    int REQUEST_TIME_OUT = 10;
 
 }

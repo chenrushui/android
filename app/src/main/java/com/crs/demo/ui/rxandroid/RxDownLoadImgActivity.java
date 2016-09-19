@@ -1,4 +1,4 @@
-package com.crs.demo.ui.rx;
+package com.crs.demo.ui.rxandroid;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

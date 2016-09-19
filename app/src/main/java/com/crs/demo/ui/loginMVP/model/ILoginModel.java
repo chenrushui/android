@@ -1,4 +1,4 @@
-package com.crs.demo.ui.login.model;
+package com.crs.demo.ui.loginmvp.model;
 
 /**
  * Created on 2016/9/14.

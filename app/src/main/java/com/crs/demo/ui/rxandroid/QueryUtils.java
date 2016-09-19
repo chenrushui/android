@@ -1,4 +1,4 @@
-package com.crs.demo.ui.rx;
+package com.crs.demo.ui.rxandroid;
 
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.FormEncodingBuilder;

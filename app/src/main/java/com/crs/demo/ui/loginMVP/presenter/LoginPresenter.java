@@ -1,8 +1,8 @@
-package com.crs.demo.ui.login.presenter;
+package com.crs.demo.ui.loginmvp.presenter;
 
-import com.crs.demo.ui.login.model.ILoginModel;
-import com.crs.demo.ui.login.model.LoginModelImpl;
-import com.crs.demo.ui.login.view.ILoginView;
+import com.crs.demo.ui.loginmvp.model.ILoginModel;
+import com.crs.demo.ui.loginmvp.model.LoginModelImpl;
+import com.crs.demo.ui.loginmvp.view.ILoginView;
 
 /**
  * Created on 2016/9/14.

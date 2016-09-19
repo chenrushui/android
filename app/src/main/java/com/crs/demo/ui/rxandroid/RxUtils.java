@@ -1,4 +1,4 @@
-package com.crs.demo.ui.rx;
+package com.crs.demo.ui.rxandroid;
 
 import rx.Observable;
 import rx.Subscriber;

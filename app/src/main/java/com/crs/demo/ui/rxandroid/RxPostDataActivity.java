@@ -1,4 +1,4 @@
-package com.crs.demo.ui.rx;
+package com.crs.demo.ui.rxandroid;
 
 import android.os.Bundle;
 import android.text.TextUtils;
