@@ -21,7 +21,6 @@
         <activity android:name=".ui.LinkedListActivity"></activity>
         <activity android:name=".ui.TestCustomViewActivity"></activity>
 
-        <activity android:name="com.crs.demo.ui.OKHttpActivity"></activity>
         <activity android:name=".ui.TestAdapterActivity"></activity>
         <activity android:name=".ui.TestRecyclerViewActivity"></activity>
 
@@ -36,6 +35,9 @@
         <activity android:name=".ui.rxandroid.RxDownLoadImgActivity"></activity>
 
         <activity android:name=".ui.okhttp.OKHttpActivity">
+        </activity>
+
+        <activity android:name=".ui.retrofit2.Retrofit2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

@@ -66,10 +66,15 @@ public class OKHttpActivity extends BaseActivity implements View.OnClickListener
     }
 
     private void clickPost() {
-        HttpUtils httpUtils = new HttpUtils();
+        HttpUtils httpUtils = new HttpUtils(OKHttpActivity.this);
         HashMap<String, String> params = new HashMap<>();
         params.put("orderNo", "TH01587458");
         httpUtils.post(UrlConstant.ORDER_STATUS_POST, params, new HttpUtils.BaseCallBack() {
+            @Override
+            public void onRequestBefore(Request request) {
+
+            }
+
             @Override
             public void onSuccess(Response response, String json) {
                 JSONObject jsonObject;
@@ -95,8 +100,13 @@ public class OKHttpActivity extends BaseActivity implements View.OnClickListener
     }
 
     private void clickGet() {
-        HttpUtils httpUtils = new HttpUtils();
+        HttpUtils httpUtils = new HttpUtils(OKHttpActivity.this);
         httpUtils.get(UrlConstant.ORDER_STATUS, new HttpUtils.BaseCallBack() {
+            @Override
+            public void onRequestBefore(Request request) {
+                //加载网络数据开始前，所做的操作
+            }
+
             @Override
             public void onSuccess(Response response, String json) {
                 //使用json包解析  注意注解的使用
@@ -119,6 +129,7 @@ public class OKHttpActivity extends BaseActivity implements View.OnClickListener
 
             @Override
             public void onFail(Request request, IOException e) {
+
 
             }
 
