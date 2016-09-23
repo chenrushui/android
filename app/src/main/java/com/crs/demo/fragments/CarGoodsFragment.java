@@ -10,7 +10,7 @@ import android.widget.Button;
 import com.crs.demo.R;
 import com.crs.demo.base.BaseFragment;
 import com.crs.demo.bean.ResponseEntity;
-import com.crs.demo.ui.testFragmentActivity;
+import com.crs.demo.ui.widget.testFragmentActivity;
 
 /**
  * Created on 2016/9/14.

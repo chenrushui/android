@@ -1,4 +1,4 @@
-package com.crs.demo.ui;
+package com.crs.demo.ui.reflect;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,16 +8,15 @@ import com.crs.demo.R;
 import com.crs.demo.base.BaseActivity;
 
 /**
- * Created on 2016/8/19.
+ * Created on 2016/9/21.
  * Author:crs
  * Description:测试泛型的使用
  */
 public class TestInflectUI extends BaseActivity {
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_test_reflcet);
 
         initViews();
     }

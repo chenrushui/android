@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <declare-styleable name="CustomButton">
+        <!--定义三个属性和对应的值类型，颜色、透明度、悬浮-->
+        <attr name="CustomColor" format="color" />
+        <attr name="CustomAlpha" format="float" />
+        <attr name="CustomHover" format="boolean" />
+    </declare-styleable>
+
+</resources>

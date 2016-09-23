@@ -1,7 +1,6 @@
-package com.crs.demo.ui;
+package com.crs.demo.ui.widget;
 
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.View;
 
 import com.crs.demo.R;

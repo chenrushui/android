@@ -1,4 +1,4 @@
-package com.crs.demo.ui;
+package com.crs.demo.ui.widget;
 
 import android.graphics.Color;
 import android.os.Bundle;

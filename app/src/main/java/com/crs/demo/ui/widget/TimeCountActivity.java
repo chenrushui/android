@@ -1,4 +1,4 @@
-package com.crs.demo.ui;
+package com.crs.demo.ui.widget;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;

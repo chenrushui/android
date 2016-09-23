@@ -1,4 +1,4 @@
-package com.crs.demo.utils;
+package com.crs.demo.ui.afinal;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -7,6 +7,10 @@ import android.content.Context;
 import com.crs.demo.base.BaseApplication;
 import com.crs.demo.bean.ResponseEntity;
 import com.crs.demo.constant.UrlConstant;
+import com.crs.demo.utils.ConnUtils;
+import com.crs.demo.utils.DialogUtils;
+import com.crs.demo.utils.ToastUtils;
+import com.crs.demo.utils.VersionUtils;
 
 import net.tsz.afinal.FinalHttp;
 import net.tsz.afinal.http.AjaxCallBack;

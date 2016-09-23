@@ -1,4 +1,4 @@
-package com.crs.demo.ui.loginmvp.presenter;
+package com.crs.demo.ui.mvp.presenter;
 
 /**
  * Created on 2016/9/14.

@@ -1,4 +1,4 @@
-package com.crs.demo.ui;
+package com.crs.demo.ui.afinal;
 
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +11,6 @@ import com.crs.demo.bean.ResponseEntity;
 import com.crs.demo.constant.UrlConstant;
 import com.crs.demo.utils.ImageLoaderUtils;
 import com.crs.demo.utils.LogUtils;
-import com.crs.demo.utils.NetUtils;
 import com.crs.demo.utils.ToastUtils;
 
 import java.util.HashMap;
@@ -19,7 +18,7 @@ import java.util.HashMap;
 /**
  * Created on 2016/9/8.
  * Author:crs
- * Description:测试自己封装的网络请求框架
+ * Description:测试自己封装的afinal网络请求框架
  */
 public class TestNetWorkActivity extends BaseActivity implements View.OnClickListener {
     private static final String TAG = "TestNetWorkActivity";

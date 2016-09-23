@@ -1,4 +1,4 @@
-package com.crs.demo.ui.loginmvp;
+package com.crs.demo.ui.mvp;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -8,8 +8,8 @@ import android.widget.EditText;
 
 import com.crs.demo.R;
 import com.crs.demo.base.BaseActivity;
-import com.crs.demo.ui.loginmvp.presenter.LoginPresenter;
-import com.crs.demo.ui.loginmvp.view.ILoginView;
+import com.crs.demo.ui.mvp.presenter.LoginPresenter;
+import com.crs.demo.ui.mvp.view.ILoginView;
 import com.crs.demo.utils.ToastUtils;
 
 /**
