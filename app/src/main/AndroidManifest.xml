@@ -20,24 +20,20 @@
         <activity android:name=".ui.widget.TimeCountActivity"></activity>
         <activity android:name=".ui.widget.LinkedListActivity"></activity>
         <activity android:name=".ui.widget.TestCustomViewActivity"></activity>
-
         <activity android:name=".ui.widget.TestAdapterActivity"></activity>
         <activity android:name=".ui.widget.TestRecyclerViewActivity"></activity>
-
         <activity android:name=".ui.widget.LunBanImageActivity"></activity>
-
         <activity
             android:name=".ui.mvp.LoginActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"></activity>
         <activity android:name=".ui.afinal.TestNetWorkActivity"></activity>
-        <activity android:name=".ui.handler.Handle1Activity"></activity>
         <activity android:name=".ui.rxandroid.RxDownLoadImgActivity"></activity>
-
-        <activity android:name=".ui.okhttp.OKHttpActivity">
+        <activity android:name=".ui.okhttp.OKHttpActivity"></activity>
+        <activity android:name=".ui.retrofit2.Retrofit2Activity">
         </activity>
 
-        <activity android:name=".ui.retrofit2.Retrofit2Activity">
+        <activity android:name=".ui.handler.TestHandlerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

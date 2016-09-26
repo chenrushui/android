@@ -19,8 +19,9 @@ import com.google.gson.Gson;
  */
 public class HandleActivity extends BaseActivity implements View.OnClickListener {
     private static final int SUCCESS_GET_DATE = 0;
-    private Button btn;
+    private Button btn_handler;
 
+    //回调handleMessage()方法
     private Handler mHandle = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -31,7 +32,7 @@ public class HandleActivity extends BaseActivity implements View.OnClickListener
                     StudentEntity student = (StudentEntity) msg.obj;
                     String name = student.getName();
                     int age = student.getAge();
-                    ToastUtils.showLong(HandleActivity.this,name + age);
+                    ToastUtils.showLong(HandleActivity.this, name + age);
                 }
                 break;
             }
@@ -49,11 +50,11 @@ public class HandleActivity extends BaseActivity implements View.OnClickListener
     }
 
     private void initListener() {
-        btn.setOnClickListener(this);
+        btn_handler.setOnClickListener(this);
     }
 
     private void initViews() {
-        btn = findView(R.id.btn);
+        btn_handler = findView(R.id.btn_handler);
 
     }
 
@@ -64,7 +65,7 @@ public class HandleActivity extends BaseActivity implements View.OnClickListener
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        String json = "{name:chenrushui,age:20}";
+                        String json = "{name:陈如水,age:20}";
                         processJson(json);
                     }
                 }).start();
@@ -76,8 +77,18 @@ public class HandleActivity extends BaseActivity implements View.OnClickListener
 
     private void processJson(String json) {
         Gson gson = new Gson();
+        //按照json结点解析获取所有的键对应的值，然后赋值给对象对应的键
         StudentEntity student = gson.fromJson(json, StudentEntity.class);
-        Message message = mHandle.obtainMessage(SUCCESS_GET_DATE, student);
-        message.sendToTarget();
+        //Message message = mHandle.obtainMessage(SUCCESS_GET_DATE, student);
+        //一个完整的消息要包括消息标识和消息内容
+        Message message = new Message();
+        message.obj = student;
+        message.what = SUCCESS_GET_DATE;
+
+        //Handler传递消息的两种方式:内部的实现原理都是一样的
+        //message.sendToTarget();
+        mHandle.sendMessage(message);
+
+
     }
 }
