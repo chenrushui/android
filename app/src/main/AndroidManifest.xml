@@ -30,10 +30,12 @@
         <activity android:name=".ui.afinal.TestNetWorkActivity"></activity>
         <activity android:name=".ui.rxandroid.RxDownLoadImgActivity"></activity>
         <activity android:name=".ui.okhttp.OKHttpActivity"></activity>
-        <activity android:name=".ui.retrofit2.Retrofit2Activity">
-        </activity>
+        <activity android:name=".ui.retrofit2.Retrofit2Activity"></activity>
 
         <activity android:name=".ui.handler.TestHandlerActivity">
+
+        </activity>
+        <activity android:name=".ui.imageloader.ImageLoaderActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
