@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_test_handler1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="更新UI1" />
+
+        <Button
+            android:id="@+id/btn_test_handler2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="更新UI2" />
+
+        <Button
+            android:id="@+id/btn_test_handler3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="更新UI3" />
+
+        <Button
+            android:id="@+id/btn_test_handler4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="更新UI4" />
+
+
+        <TextView
+            android:id="@+id/tv_activity_test_update_ui"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_status_bar" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

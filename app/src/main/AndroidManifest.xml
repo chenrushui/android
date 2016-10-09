@@ -14,33 +14,37 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.widget.MainActivity"></activity>
-        <activity android:name="com.crs.demo.ui.widget.LuoActivity"></activity>
-        <activity android:name=".ui.handler.HandleActivity"></activity>
-        <activity android:name=".ui.widget.TimeCountActivity"></activity>
-        <activity android:name=".ui.widget.LinkedListActivity"></activity>
-        <activity android:name=".ui.widget.TestCustomViewActivity"></activity>
-        <activity android:name=".ui.widget.TestAdapterActivity"></activity>
-        <activity android:name=".ui.widget.TestRecyclerViewActivity"></activity>
-        <activity android:name=".ui.widget.LunBanImageActivity"></activity>
+        <activity android:name=".ui.widget.MainActivity" />
+        <activity android:name="com.crs.demo.ui.widget.LuoActivity" />
+        <activity android:name=".ui.handler.HandleActivity" />
+        <activity android:name=".ui.widget.TimeCountActivity" />
+        <activity android:name=".ui.widget.LinkedListActivity" />
+        <activity android:name=".ui.widget.TestCustomViewActivity" />
+        <activity android:name=".ui.widget.TestAdapterActivity" />
+        <activity android:name=".ui.widget.TestRecyclerViewActivity" />
+        <activity android:name=".ui.widget.LunBanImageActivity" />
         <activity
             android:name=".ui.mvp.LoginActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".ui.afinal.TestNetWorkActivity"></activity>
-        <activity android:name=".ui.rxandroid.RxDownLoadImgActivity"></activity>
-        <activity android:name=".ui.okhttp.OKHttpActivity"></activity>
-        <activity android:name=".ui.retrofit2.Retrofit2Activity"></activity>
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.afinal.TestNetWorkActivity" />
+        <activity android:name=".ui.rxandroid.RxDownLoadImgActivity" />
+        <activity android:name=".ui.okhttp.OKHttpActivity" />
+        <activity android:name=".ui.retrofit2.Retrofit2Activity" />
+        <activity android:name=".ui.handler.TestHandlerActivity" />
+        <activity android:name=".ui.imageloader.ImageLoaderActivity" />
+        <activity
+            android:name="com.crs.demo.ui.handler.TestPostDelayedActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.crs.demo.ui.handler.TestCallBackActivity" />
+        <activity android:name="com.crs.demo.ui.handler.TestUpdateUIActivity" />
 
-        <activity android:name=".ui.handler.TestHandlerActivity">
-
-        </activity>
-        <activity android:name=".ui.imageloader.ImageLoaderActivity">
+        <activity android:name="com.crs.demo.ui.handler.TestCustomHandlerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 </manifest>

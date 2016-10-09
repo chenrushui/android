@@ -15,7 +15,9 @@ import com.google.gson.Gson;
 /**
  * Created on 2016/8/24.
  * Author:crs
- * Description:消息机制的使用，线程间通讯
+ * Description:消息机制的使用,主要用于线程间通讯。
+ * 1)一个完整的消息要包括消息标识和消息内容.
+ * 2)handler.post(r): r是要执行的任务代码,意思就是说r的代码实际是在UI线程执行的,可以写更新UI的代码。
  */
 public class HandleActivity extends BaseActivity implements View.OnClickListener {
     private static final int SUCCESS_GET_DATE = 0;
@@ -88,7 +90,5 @@ public class HandleActivity extends BaseActivity implements View.OnClickListener
         //Handler传递消息的两种方式:内部的实现原理都是一样的
         //message.sendToTarget();
         mHandle.sendMessage(message);
-
-
     }
 }
