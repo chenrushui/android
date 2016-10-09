@@ -34,8 +34,6 @@ public class ImageLoaderActivity extends BaseActivity {
 
         initViews();
         //getImageData();
-
-
     }
 
     private void initViews() {

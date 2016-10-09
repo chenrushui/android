@@ -38,7 +38,6 @@ public class TestCallBackActivity extends BaseActivity {
         setContentView(R.layout.activity_test_call_back);
 
         initViews();
-
     }
 
     private void initViews() {

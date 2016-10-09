@@ -12,6 +12,8 @@ import com.crs.demo.bean.StudentEntity;
 import com.crs.demo.utils.ToastUtils;
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+
 /**
  * Created on 2016/8/24.
  * Author:crs
@@ -46,6 +48,7 @@ public class HandleActivity extends BaseActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_handle);
+
 
         initViews();
         initListener();

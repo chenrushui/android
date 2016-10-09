@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.util.LruCache;
 import android.util.DisplayMetrics;
 import android.widget.ImageView;
 
@@ -22,6 +23,8 @@ import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created on 2016/9/28.
@@ -36,16 +39,34 @@ import java.util.HashMap;
  * 图片压缩bitmap.compress( ); 参数如何理解？
  * 网络加载大图，只要不显示就不会报OOM异常。
  * "/sdcard/imageCache"对此路径的理解
+ *
  * java中的对象的引用类型的理解
- * 软引用类的使用SoftReference  如何使用，构造函数传递一个对象
- * 弱引用类的使用WeakReference
+ * 软引用类的使用 SoftReference  如何使用，构造函数传递一个对象
+ * 弱引用类的使用 WeakReference
  */
 public class BitmapUtils {
     private Context mContext;
 
     private File cacheDir = new File(SDConstant.imageCache);
+
+    private static final int SUCCESS_LOAD_DATA = 0;
+    private static final int FAILURE_LOAD_DATA = 1;
+    private InnerHandler mHandler = new InnerHandler();
+    ExecutorService executorService = Executors.newFixedThreadPool(5);
+
     //使用集合来存储图片
-    private HashMap<String, SoftReference<Bitmap>> map = new HashMap<>();
+    //private HashMap<String, SoftReference<Bitmap>> map = new HashMap<>();
+
+    //使用LruCache进行替换,参数为使用多大的内存去存储图片
+    //花费虚拟机八分之一的空间去存储图片
+    //使用LruCache比软引用更好，因为里面有一套算法，根据图片的使用频率去销毁图片。
+    int maxSize = (int) (Runtime.getRuntime().maxMemory() / 8);
+    private LruCache<String, Bitmap> map = new LruCache<String, Bitmap>(maxSize) {
+        @Override
+        protected int sizeOf(String key, Bitmap value) {
+            return value.getRowBytes() * value.getHeight();
+        }
+    };
 
 
     public BitmapUtils(Context context) {
@@ -55,10 +76,6 @@ public class BitmapUtils {
             cacheDir.mkdir();
         }
     }
-
-    private static final int SUCCESS_LOAD_DATA = 0;
-    private static final int FAILURE_LOAD_DATA = 1;
-    private InnerHandler mHandler = new InnerHandler();
 
     //显示图片
     public void display(ImageView iv, String url) {
@@ -79,7 +96,12 @@ public class BitmapUtils {
     }
 
     private Bitmap getBitmapFromMemory(String url) {
-        Bitmap bitmap = null;
+//        Bitmap bitmap = null;
+//        SoftReference<Bitmap> bitmapSoftReference = map.get(url);
+//        if (bitmapSoftReference != null) {
+//            bitmap = bitmapSoftReference.get();
+//        }
+        Bitmap bitmap = map.get(url);
         return bitmap;
 
     }
@@ -98,13 +120,22 @@ public class BitmapUtils {
         opts.inSampleSize = sampleSize;
         //加载图片的操作
         Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath(), opts);
+
+        //执行内存存储
+        //map.put(url,bitmap);
+
         return bitmap;
     }
 
     private void getBitmapFromInternet(ImageView iv, String url) {
         //开启线程，加载图片
         //创建对象，传入参数，构造方法
-        new Thread(new DownloadImageTask(iv, url)).start();
+        //缺陷是：如果需要加载100张图片，就需要创建100个线程对象去执行任务
+        //new Thread(new DownloadImageTask(iv, url)).start();
+
+        //使用线程池进行改良：让线程复用
+        //创建一个线程池对象，里面默认开启五条线程，能够重复使用线程池里面的线程
+        executorService.submit(new DownloadImageTask(iv, url));
 
     }
 
@@ -144,8 +175,7 @@ public class BitmapUtils {
 
                     //使用软引用执行内存缓存
                     SoftReference<Bitmap> softReference = new SoftReference<>(bitmap);
-                    map.put(imageUrl, softReference);
-
+                    map.put(imageUrl, bitmap);
 
                     //封装对象进行传递
                     ImageViewBitmap imageViewBitmap = new ImageViewBitmap();

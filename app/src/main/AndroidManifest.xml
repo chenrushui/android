@@ -32,7 +32,6 @@
         <activity android:name=".ui.okhttp.OKHttpActivity" />
         <activity android:name=".ui.retrofit2.Retrofit2Activity" />
         <activity android:name=".ui.handler.TestHandlerActivity" />
-        <activity android:name=".ui.imageloader.ImageLoaderActivity" />
         <activity
             android:name="com.crs.demo.ui.handler.TestPostDelayedActivity"
             android:launchMode="singleTask"
@@ -40,7 +39,13 @@
         <activity android:name="com.crs.demo.ui.handler.TestCallBackActivity" />
         <activity android:name="com.crs.demo.ui.handler.TestUpdateUIActivity" />
 
-        <activity android:name="com.crs.demo.ui.handler.TestCustomHandlerActivity">
+        <activity android:name="com.crs.demo.ui.handler.TestCustomHandlerActivity" />
+
+        <activity android:name=".ui.imageloader.ImageLoaderActivity">
+
+        </activity>
+
+        <activity android:name="com.crs.demo.ui.lrucache.LruCacheActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
