@@ -12,6 +12,7 @@ import com.crs.demo.constant.UrlConstant;
 import com.crs.demo.utils.ImageLoaderUtils;
 import com.crs.demo.utils.LogUtils;
 import com.crs.demo.utils.ToastUtils;
+import com.crs.demo.utils.logger.Logger;
 
 import java.util.HashMap;
 
@@ -65,16 +66,18 @@ public class TestNetWorkActivity extends BaseActivity implements View.OnClickLis
 
     private void clickPost() {
         NetUtils netUtils = new NetUtils(TestNetWorkActivity.this);
-        netUtils.isFullUrl(true);
+        netUtils.isFullUrl(false);
         netUtils.isShowDialog(true);
         netUtils.isPost(true);
         HashMap<String, String> params = new HashMap<>();
-        params.put("orderNo", "TH01587458");
+        params.put("orderNo", "TH01598872");
+        //http://api.tuhu.test/Order/GetOrderStatusForCheLun?orderNo=TH01598872
         netUtils.sendToApi(params, UrlConstant.ORDER_STATUS_POST, new NetUtils.ResponseCallBack() {
             @Override
             public void getResponseData(ResponseEntity response) {
+                Logger.i(response.parse().toString());
                 if (response.isSuccessful()) {
-                    LogUtils.i(TAG, response.toString());
+                    //LogUtils.i(TAG, response.toString());
                     ToastUtils.showShort(TestNetWorkActivity.this, "网络请求成功！");
                 }
             }
@@ -91,8 +94,9 @@ public class TestNetWorkActivity extends BaseActivity implements View.OnClickLis
         netUtils.sendToApi(null, UrlConstant.ORDER_STATUS, new NetUtils.ResponseCallBack() {
             @Override
             public void getResponseData(ResponseEntity response) {
+                // Logger.i("tag",response.toString());
                 if (response.isSuccessful()) {
-                    LogUtils.i(TAG, response.toString());
+                    // LogUtils.i(TAG, response.toString());
                     ToastUtils.showShort(TestNetWorkActivity.this, "网络请求成功！");
                 }
             }

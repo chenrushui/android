@@ -2,6 +2,9 @@ package com.crs.demo.base;
 
 import android.app.Application;
 
+import com.crs.demo.utils.logger.LogLevel;
+import com.crs.demo.utils.logger.Logger;
+
 /**
  * Created on 2016/8/24.
  * Author:crs
@@ -14,6 +17,12 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        //进行初始化操作
+        Logger.init("TUHU")
+                .setMethodCount(5)            // default 2
+                .hideThreadInfo()             // default it is shown
+                .setLogLevel(LogLevel.FULL);  //NONE
     }
 
     public static BaseApplication getInstance() {

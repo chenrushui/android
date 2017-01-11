@@ -27,7 +27,12 @@
             android:name=".ui.mvp.LoginActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.afinal.TestNetWorkActivity" />
+        <activity android:name=".ui.afinal.TestNetWorkActivity">
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity android:name=".ui.rxandroid.RxDownLoadImgActivity" />
         <activity android:name=".ui.okhttp.OKHttpActivity" />
         <activity android:name=".ui.retrofit2.Retrofit2Activity" />
@@ -46,10 +51,7 @@
         </activity>
 
         <activity android:name="com.crs.demo.ui.lrucache.LruCacheActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
     </application>
 </manifest>
